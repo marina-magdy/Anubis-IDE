@@ -135,23 +135,31 @@ class PythonHighlighter(QSyntaxHighlighter):
     def highlightBlock(self, text):
         """Apply syntax highlighting to the given block of text.
         """
+        if(extension_=='py'):
         # Do other syntax formatting
-        for expression, nth, format in self.rules:
-            index = expression.indexIn(text, 0)
-
-            while index >= 0:
+            for expression, nth, format in self.rules:
+               index = expression.indexIn(text, 0)
+               while index >= 0:
                 # We actually want the index of the nth match
-                index = expression.pos(nth)
-                length = len(expression.cap(nth))
-                self.setFormat(index, length, format)
-                index = expression.indexIn(text, index + length)
-
+                   index = expression.pos(nth)
+                   length = len(expression.cap(nth))
+                   self.setFormat(index, length, format)
+                   index = expression.indexIn(text, index + length)
+        else:
+             for expression, nth, format in self.crules:
+                 index = expression.indexIn(text, 0)
+                 while index >= 0:
+# We actually want the index of the nth match
+                       index = expression.pos(nth)
+                       length = len(expression.cap(nth))
+                       self.setFormat(index, length, format)
+                       index = expression.indexIn(text, index + length)
         self.setCurrentBlockState(0)
-
-        # Do multi-line strings
+# Do multi-line strings
         in_multiline = self.match_multiline(text, *self.tri_single)
         if not in_multiline:
-            in_multiline = self.match_multiline(text, *self.tri_double)
+           in_multiline = self.match_multiline(text, *self.tri_double)
+
 
     def match_multiline(self, text, delimiter, in_state, style):
         """Do highlighting of multi-line strings. ``delimiter`` should be a
