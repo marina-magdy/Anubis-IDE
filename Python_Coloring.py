@@ -3,8 +3,8 @@ from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QColor, QTextCharFormat, QFont, QSyntaxHighlighter
 extension_ = 'py'
 def setExtension(extension):
-global extension_
-extension_=extension
+    global extension_
+    extension_=extension
 
 
 def format(color, style=''):
