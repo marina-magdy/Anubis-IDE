@@ -84,6 +84,51 @@ class PythonHighlighter(QSyntaxHighlighter):
     braces = [
         '\{', '\}', '\(', '\)', '\[', '\]',
     ]
+    ckeywords = [
+'class', 
+'abstract','base','bool','break','byte','case','catch','char','const',
+'continue','decimal','do','double','else','enum','event','explicit',
+'extern','false','finally','fixed','float','for','foreach','goto','if','i
+mplicit','in','int',
+'interface','internal','lock','long','namespace','null','object','operato
+r','out',
+'override','params','private','protected','public','readonly','ref','retu
+rn','sbyte','sealed',
+'short','static','string','struct','switch','throw','true','try', 
+'uint','ulong','unsafe','ushort','using','virtual','void','volatile','whi
+le',
+]
+# C# operators
+    coperators = [
+'=',
+# Comparison
+'==', '!=', '<', '<=', '>', '>=',
+# Arithmetic
+'\+', '-', '\*', '/', '//', '\%', '\*\*',
+# In-place
+'\+=', '-=', '\*=', '/=', '\%=', 
+'\&=', '\|=','\^=', '<<=', '>>=', '??=',
+# Bitwise
+'\^', '\|', '\&', '\~', '>>', '<<',
+# Primary
+'\++', '--','new', 'typeof','checked','unchecked','default', 'nameof', 
+'delegate','sizeof','stackalloc', 'is',
+]
+# poperators = [
+# '=',
+# # Comparison
+# '==', '!=', '<', '<=', '>', '>=',
+# # Arithmetic
+# '\+', '-', '\*', '/', '//', '\%', '\*\*',
+# # In-place
+# '\+=', '-=', '\*=', '/=', '\%=',
+# # Bitwise
+# '\^', '\|', '\&', '\~', '>>', '<<',
+# ]
+# C# braces
+    cbraces = [
+'\{', '\}', '\(', '\)', '\[', '\]',
+]
 
     def __init__(self, document):
         QSyntaxHighlighter.__init__(self, document)
